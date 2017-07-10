@@ -13,7 +13,7 @@ export class ProductAPIService {
 
   constructor( private http: Http ){}
 
-  private productListUrl = '/assets/json/products.json'; 
+  private productListUrl = environment.assetsUrl + 'json/products.json'; 
 
   /**
    * List all products from backend

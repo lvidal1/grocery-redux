@@ -44,12 +44,9 @@ export function createProductAPIReducer() {
           _updatedAt : new Date()
         };
       case ProductApiActions.DELETE_PRODUCT:
-      console.log(action.meta);
         return {
           ...state,
           list:  state.list.filter(item => {
-            console.log( action.meta )
-            console.log( item.id +" !== "+ action.meta )
             return item.id !== action.meta // return all the items not matching the action.id
           }),
           _isLoading : false,
