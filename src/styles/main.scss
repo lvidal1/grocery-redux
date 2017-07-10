@@ -43,3 +43,17 @@ h1{
       top: 27px;
   }
 }
+
+
+@for $i from 1 through 10 {
+  .m-t-#{5*$i} { margin-top: 5px * $i; }
+  .m-r-#{5*$i} { margin-right: 5px * $i; }
+  .m-b-#{5*$i} { margin-bottom: 5px * $i; }
+  .m-l-#{5*$i} { margin-left: 5px * $i; }
+}
+@for $i from 1 through 10 {
+  .p-t-#{5*$i} { padding-top: 5px * $i; }
+  .p-r-#{5*$i} { padding-right: 5px * $i; }
+  .p-b-#{5*$i} { padding-bottom: 5px * $i; }
+  .p-l-#{5*$i} { padding-left: 5px * $i; }
+}
