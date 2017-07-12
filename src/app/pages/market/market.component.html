@@ -37,15 +37,19 @@
                 <ul class="demo-list-icon mdl-list">
                   <li class="mdl-list__item" 
                     *ngFor="let product of (products$ | async ).list | reverse" 
-                    [@anim]="product.state"
-                    (click)="deleteProduct(product)">
+                    [@anim]="product.state">
                     <span class="mdl-list__item-primary-content">
                       <i class="material-icons mdl-list__item-icon">image</i>
                       {{ product.name }} 
                     </span>
                     <span class="mdl-list__item-secondary-action">
                       <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-1">
-                        <button md-button title="Delete product"> <i class="material-icons mdl-list__item-icon">delete</i></button>
+                        <button md-button title="Delete product" (click)="openEditDialog(product)"> <i class="material-icons mdl-list__item-icon">edit</i></button>
+                      </label>
+                    </span>
+                    <span class="mdl-list__item-secondary-action">
+                      <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-1">
+                        <button md-button title="Delete product" (click)="deleteProduct(product)"> <i class="material-icons mdl-list__item-icon">delete</i></button>
                       </label>
                     </span>
                   </li>
@@ -62,5 +66,6 @@
 
 
 
+<!-- Modal Edit-Product -->
 
 

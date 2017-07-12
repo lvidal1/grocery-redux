@@ -19,6 +19,7 @@ export class ProductApiActions {
     static readonly LIST_PRODUCT_FAILED = 'LIST_PRODUCT_FAILED';
 
     static readonly ADD_PRODUCT = 'ADD_PRODUCT';
+    static readonly EDIT_PRODUCT = 'EDIT_PRODUCT';
     static readonly DELETE_PRODUCT = 'DELETE_PRODUCT';
 
     /**
@@ -55,9 +56,21 @@ export class ProductApiActions {
      * @memberof ProductApiActions
      */
     @dispatch()
-    addProduct = ( product : IProduct ) : TProductAPIAction => ({
+    addProduct = ( product : any ) : TProductAPIAction => ({
         type : ProductApiActions.ADD_PRODUCT,
         meta : product,
+        payload : null
+    })
+
+    /**
+     * Action: Edit a product
+     * @actionType : EDIT_PRODUCT
+     * @memberof ProductApiActions
+     */
+    @dispatch()
+    editProduct = ( meta : any ) : TProductAPIAction => ({
+        type : ProductApiActions.EDIT_PRODUCT,
+        meta : meta,
         payload : null
     })
 

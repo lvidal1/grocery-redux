@@ -43,6 +43,18 @@ export function createProductAPIReducer() {
           _isLoading : false,
           _updatedAt : new Date()
         };
+      case ProductApiActions.EDIT_PRODUCT:
+        return {
+          ...state,
+          list:  state.list.map(item => { // return EDIT item by mapping a item with product.id
+            if(item.id === action.meta['id']){
+              return { ...item, ...action.meta }
+            }
+            return item
+          }),
+          _isLoading : false,
+          _updatedAt : new Date()
+        };
       case ProductApiActions.DELETE_PRODUCT:
         return {
           ...state,

@@ -12,6 +12,8 @@ import { IAppState } from 'app/_store/root/model';
 import { ProductApiActions } from 'app/_store/product/api/actions';
 import { IProductList , INITIAL_STATE_IProductList} from "app/_store/product/model";
 import { animationProductItem } from './market.animations';
+import { MdDialog } from "@angular/material";
+import { EditProductComponent } from "app/pages/market/modal/edit-product.component";
 
 @Component({
     selector:'market',
@@ -28,7 +30,8 @@ export class MarketComponent{
 
     constructor(
         public  fb: FormBuilder,
-        private aProduct: ProductApiActions
+        private aProduct: ProductApiActions,
+        public dialog: MdDialog
         ) {}
 
     // -- PUBLIC METHODS
@@ -62,6 +65,11 @@ export class MarketComponent{
     deleteProduct( product ) {
         // Trigger Action : Delete product
         this.aProduct.deleteProduct(product.id);
+    }
+
+    openEditDialog(product) {
+        // Open Edit Modal for product
+        this.dialog.open(EditProductComponent , {data:{product: product}} );
     }
 
     
